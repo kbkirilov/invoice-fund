@@ -68,6 +68,7 @@ create table auctions
     id int auto_increment primary key ,
     start_date datetime not null ,
     end_date datetime not null ,
+    start_price decimal(15,2) not null ,
     bid_step decimal(15,2) not null ,
     created_at datetime default current_timestamp,
     updated_ad datetime ,

@@ -21,6 +21,9 @@ public class Auction {
     @Column(name = "end_date")
     private LocalDateTime end_date;
 
+    @Column(name = "start_amount")
+    private BigDecimal start_amount;
+
     @Column(name = "bid_step")
     private BigDecimal bid_step;
 
