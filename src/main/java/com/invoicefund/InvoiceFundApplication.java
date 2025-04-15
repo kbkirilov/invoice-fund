@@ -1,4 +1,4 @@
-package com.invoicefund.invoicefund;
+package com.invoicefund;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
