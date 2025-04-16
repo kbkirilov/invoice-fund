@@ -16,23 +16,22 @@ public class Auction {
     private int id;
 
     @Column(name = "start_date")
-    private LocalDateTime start_date;
+    private LocalDateTime startDate;
 
     @Column(name = "end_date")
-    private LocalDateTime end_date;
+    private LocalDateTime endDate;
 
     @Column(name = "start_amount")
-    private BigDecimal start_amount;
+    private BigDecimal startAmount;
 
     @Column(name = "bid_step")
-    private BigDecimal bid_step;
+    private BigDecimal bidStep;
 
     @Column(name = "updated_ad")
-    private LocalDateTime updated_ad;
+    private LocalDateTime updatedAt;
 
-    @Column()
-    @Enumerated(EnumType.STRING)
-    private int status_id;
+    @Column(name = "status_id")
+    private int statusId;
 
     @OneToMany(mappedBy = "auction")
     private Set<Invoice> invoices;

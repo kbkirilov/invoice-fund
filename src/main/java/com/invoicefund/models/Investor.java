@@ -18,7 +18,7 @@ public class Investor {
     private User user;
 
     @Column(name = "company_name")
-    private String company_name;
+    private String companyName;
 
     @OneToMany(mappedBy = "investor")
     private Set<Bid> bids;

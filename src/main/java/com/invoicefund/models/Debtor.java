@@ -12,7 +12,7 @@ public class Debtor {
     private int id;
 
     @Column(name = "company_name")
-    private String company_name;
+    private String companyName;
 
     @Column(name = "address")
     private String address;

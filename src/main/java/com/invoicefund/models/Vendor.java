@@ -18,7 +18,7 @@ public class Vendor {
     private User user;
 
     @Column(name = "company_name")
-    private String company_name;
+    private String companyName;
 
     @OneToMany(mappedBy = "vendor")
     private Set<Invoice> invoices;

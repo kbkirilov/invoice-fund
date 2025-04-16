@@ -25,14 +25,13 @@ public class Invoice {
     private String description;
 
     @Column(name = "issue_date")
-    private LocalDateTime issue_date;
+    private LocalDateTime issueDate;
 
     @Column(name = "due_date")
-    private LocalDateTime due_date;
+    private LocalDateTime dueDate;
 
-    @Column()
-    @Enumerated(EnumType.STRING)
-    private int status_id;
+    @Column(name = "status_id")
+    private int statusId;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
