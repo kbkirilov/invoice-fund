@@ -1,6 +1,6 @@
 insert into roles (id, name)
 values (1, 'ADMIN'),
-       (2, 'BUSINESS'),
+       (2, 'VENDOR'),
        (3, 'INVESTOR');
 
 insert into statuses (id, status_name)
