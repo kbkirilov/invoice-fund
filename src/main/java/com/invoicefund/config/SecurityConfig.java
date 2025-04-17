@@ -17,7 +17,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import java.util.Collections;
 
-import static com.invoicefund.helpers.Constants.ROLE_ADMIN;
+import static com.invoicefund.helpers.Constants.*;
 
 
 @Configuration
@@ -37,6 +37,9 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/admin-portal/**").hasRole(ROLE_ADMIN)
+                        .requestMatchers("/api/vendor-portal/**").hasRole(ROLE_VENDOR)
+                        .requestMatchers("/api/investor-portal/**").hasRole(ROLE_INVESTOR)
+                        .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())
                 .csrf(csrf -> csrf.disable());

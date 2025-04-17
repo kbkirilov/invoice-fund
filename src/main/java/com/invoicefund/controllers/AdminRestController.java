@@ -46,39 +46,6 @@ public class AdminRestController {
         this.vendorService = vendorService;
     }
 
-    @GetMapping("users/{id}")
-    public UserDtoOut getUserById(@PathVariable int id) {
-        try {
-            User user = userService.getUserById(id);
-            return modelMapper.fromUserToUserDtoOut(user);
-        } catch (EntityNotFoundException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
-        }
-    }
-
-    @GetMapping("users")
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
-    }
-
-    @GetMapping("invoices")
-    public List<InvoiceDtoOut> getAllInvoices() {
-        List<Invoice> invoiceList = invoiceService.getAllInvoices();
-        return modelMapper.fromListInvoiceToListInvoiceDtoOut(invoiceList);
-    }
-
-    @GetMapping("auctions")
-    public List<AuctionDtoOut> getAllAuctions() {
-        List<Auction> auctionList = auctionService.getAllAuctions();
-        return modelMapper.fromListAuctionToListAuctionDtoOut(auctionList);
-    }
-
-    @GetMapping("bids")
-    public List<BidDtoOut> getAllBids() {
-        List<Bid> bidList = bidService.getAllBids();
-        return modelMapper.fromListBidToListBidDtoOut(bidList);
-    }
-
 }
 
 
