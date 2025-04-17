@@ -1,6 +1,7 @@
 package com.invoicefund.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.invoicefund.helpers.RoleConverter;
 import com.invoicefund.models.enums.Role;
 import jakarta.persistence.*;
 
@@ -19,7 +20,7 @@ public class User {
     private String username;
 
     @JsonIgnore
-    @Column(name = "password")
+    @Column(name = "password_hash")
     private String passwordHash;
 
     @Column(name = "first_name")
@@ -34,8 +35,8 @@ public class User {
     @Column(name = "address")
     private String address;
 
-    @Column()
-    @Enumerated(EnumType.STRING)
+    @Convert(converter = RoleConverter.class)
+    @Column(name = "role_id")
     private Role role;
 
     public int getId() {
