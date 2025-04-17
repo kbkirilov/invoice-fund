@@ -21,8 +21,8 @@ public class Auction {
     @Column(name = "end_date")
     private LocalDateTime endDate;
 
-    @Column(name = "start_amount")
-    private BigDecimal startAmount;
+    @Column(name = "start_price")
+    private BigDecimal startPrice;
 
     @Column(name = "bid_step")
     private BigDecimal bidStep;
@@ -33,13 +33,93 @@ public class Auction {
     @Column(name = "status_id")
     private int statusId;
 
-    @OneToMany(mappedBy = "auction")
+    @OneToMany(mappedBy = "auction", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Invoice> invoices;
 
-    @OneToMany(mappedBy = "auction")
+    @OneToMany(mappedBy = "auction", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Bid> bids;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private Vendor vendor;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDateTime startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDateTime getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDateTime endDate) {
+        this.endDate = endDate;
+    }
+
+    public BigDecimal getStartPrice() {
+        return startPrice;
+    }
+
+    public void setStartPrice(BigDecimal startPrice) {
+        this.startPrice = startPrice;
+    }
+
+    public BigDecimal getBidStep() {
+        return bidStep;
+    }
+
+    public void setBidStep(BigDecimal bidStep) {
+        this.bidStep = bidStep;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public int getStatusId() {
+        return statusId;
+    }
+
+    public void setStatusId(int statusId) {
+        this.statusId = statusId;
+    }
+
+    public Set<Invoice> getInvoices() {
+        return invoices;
+    }
+
+    public void setInvoices(Set<Invoice> invoices) {
+        this.invoices = invoices;
+    }
+
+    public Set<Bid> getBids() {
+        return bids;
+    }
+
+    public void setBids(Set<Bid> bids) {
+        this.bids = bids;
+    }
+
+    public Vendor getVendor() {
+        return vendor;
+    }
+
+    public void setVendor(Vendor vendor) {
+        this.vendor = vendor;
+    }
 }

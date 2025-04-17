@@ -20,9 +20,9 @@ public class Vendor {
     @Column(name = "company_name")
     private String companyName;
 
-    @OneToMany(mappedBy = "vendor")
+    @OneToMany(mappedBy = "vendor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Invoice> invoices;
 
-    @OneToMany(mappedBy = "vendor")
+    @OneToMany(mappedBy = "vendor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Auction> auctions;
 }

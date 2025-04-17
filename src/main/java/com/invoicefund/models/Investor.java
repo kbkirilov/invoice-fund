@@ -20,7 +20,7 @@ public class Investor {
     @Column(name = "company_name")
     private String companyName;
 
-    @OneToMany(mappedBy = "investor")
+    @OneToMany(mappedBy = "investor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Bid> bids;
 
 }

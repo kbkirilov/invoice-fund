@@ -5,6 +5,11 @@ public class UserDtoOut {
     private String username;
     private String firstName;
 
+    public UserDtoOut(String username, String firstName) {
+        this.username = username;
+        this.firstName = firstName;
+    }
+
     public String getUsername() {
         return username;
     }
